@@ -22,7 +22,7 @@ export default {
       // commit - mutation
       // dispatch - action
       // this.$store.commit("ADD_TODO", e.target.value);
-      this.$store.dispatch("addTodo", e.target.value);
+      this.$store.dispatch("todo/addTodo", e.target.value);
 
       this.todoText = "";
     }

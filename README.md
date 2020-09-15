@@ -24,3 +24,12 @@ this.$store.dispatch("addTodo", e.target.value);
 
 - getters  
   컴포넌트의 computed 와 비슷
+
+
+### < Map Helpers >
+* mapState  
+저장소 getter 를 컴포넌트 computed 속성에 매핑
+* mapActions  
+dispatch 호출(actions)을 컴포넌트 methods 에 매핑
+* mapMutations  
+commit 호출(mutations)을 컴포넌트 methods 에 매핑

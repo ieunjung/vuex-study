@@ -11,6 +11,7 @@
       >{{ todo.text }}</span
     >
     <button class="btn btn-danger btn-sm" @click="clickDelete">Delete</button>
+    {{ numberOfCompletedTodo }}
   </div>
 </template>
 
@@ -22,13 +23,18 @@ export default {
       required: true
     }
   },
+  computed: {
+    numberOfCompletedTodo() {
+      return this.$store.getters['todo/numberOfCompletedTodo'];
+    }
+  },
   methods: {
     toggleCheckbox(e) {
       // this.$emit("toggle-checkbox", {
       //   id: this.todo.id,
       //   checked: e.target.checked
       // });
-      this.$store.commit("TOGGLE_TODO", {
+      this.$store.commit("todo/TOGGLE_TODO", {
         id: this.todo.id,
         checked: e.target.checked
       });
@@ -36,7 +42,7 @@ export default {
     clickDelete() {
       // this.$emit("click-delete", this.todo.id);
       // this.$store.commit("DELETE_TODO", this.todo.id);
-      this.$store.dispatch("deleteTodo", this.todo.id);
+      this.$store.dispatch("todo/deleteTodo", this.todo.id);
     }
   }
 };
